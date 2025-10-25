@@ -123,13 +123,12 @@ This chat bot uses **Groq** - a FREE, FAST AI API powered by Llama 3.3 70B:
 - 📊 **Generous limits** - 14,400 requests/day
 - 🎯 **Perfect for chat** - Optimized for conversations
 
-**Note:** Alternative free APIs available in `FREE_API_SETUP.md`
 
 ## Customization
 
-### Changing Groq Models
+### Changing AI Models
 
-You can modify the model in `/app/api/chat/route.ts`:
+Edit `/app/api/chat/route.ts` to change the model:
 
 ```typescript
 model: "llama-3.3-70b-versatile" // Current (recommended)
@@ -139,28 +138,23 @@ model: "llama-3.3-70b-versatile" // Current (recommended)
 // "gemma2-9b-it" - Smaller, faster model
 ```
 
-### Adjusting Response Length
-
-Modify the `max_tokens` parameter:
+### Adjust Response Length
 
 ```typescript
 max_tokens: 150 // Increase for longer responses
 ```
 
-### Custom System Prompts
-
-Change the AI's personality by editing the system message:
+### Customize AI Personality
 
 ```typescript
-content: "You are a coding expert who explains concepts clearly..."
+content: "You are a helpful coding assistant..."
 ```
 
 ### Styling
 
-The app uses Tailwind CSS. You can customize:
-- Colors in `tailwind.config.js`
-- Styles in `app/globals.css`
-- Component-specific styles in the React components
+- Colors: `tailwind.config.js`
+- Global styles: `app/globals.css`
+- Components: `app/components/ChatBot.tsx`
 
 ## Deployment
 
@@ -176,14 +170,6 @@ The app uses Tailwind CSS. You can customize:
 ## Contributing
 
 Feel free to submit issues and enhancement requests!
-
-## 🎨 UI Features
-
-Check out `UI_FEATURES.md` for detailed information about:
-- How to use the 3 themes
-- Keyboard shortcuts
-- Copy message functionality
-- All the amazing UI features
 
 ## License
 

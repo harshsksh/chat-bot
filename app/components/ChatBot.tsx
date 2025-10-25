@@ -2,6 +2,8 @@
 
 import { useState, useRef, useEffect } from 'react'
 import { Send, Bot, User, Sparkles, Trash2, Copy, Check, Moon, Sun, MessageSquare } from 'lucide-react'
+import ReactMarkdown from 'react-markdown'
+import remarkGfm from 'remark-gfm'
 
 interface Message {
   id: string
@@ -289,9 +291,62 @@ export default function ChatBot() {
                       : 'bg-white text-gray-900 border border-gray-200 rounded-tl-md'
                   } transition-all duration-200 hover:shadow-lg`}
                 >
-                  <p className="text-sm md:text-base leading-relaxed whitespace-pre-wrap break-words">
-                    {message.text}
-                  </p>
+                  <div className="text-sm md:text-base leading-relaxed prose prose-sm max-w-none dark:prose-invert">
+                    {message.sender === 'bot' ? (
+                      <ReactMarkdown
+                        remarkPlugins={[remarkGfm]}
+                        components={{
+                          h1: ({node, ...props}) => <h1 className="text-xl font-bold mt-4 mb-2" {...props} />,
+                          h2: ({node, ...props}) => <h2 className="text-lg font-bold mt-3 mb-2" {...props} />,
+                          h3: ({node, ...props}) => <h3 className="text-base font-bold mt-2 mb-1" {...props} />,
+                          p: ({node, ...props}) => <p className="mb-2 last:mb-0" {...props} />,
+                          strong: ({node, ...props}) => <strong className="font-bold" {...props} />,
+                          em: ({node, ...props}) => <em className="italic" {...props} />,
+                          ul: ({node, ...props}) => <ul className="list-disc list-inside mb-2 space-y-1" {...props} />,
+                          ol: ({node, ...props}) => <ol className="list-decimal list-inside mb-2 space-y-1" {...props} />,
+                          li: ({node, ...props}) => <li className="ml-2" {...props} />,
+                          code: ({node, inline, ...props}: any) => 
+                            inline ? (
+                              <code className={`px-1.5 py-0.5 rounded text-xs font-mono ${
+                                theme === 'dark' ? 'bg-gray-700 text-purple-300' : 'bg-gray-100 text-purple-600'
+                              }`} {...props} />
+                            ) : (
+                              <code className={`block p-3 rounded-lg text-xs font-mono overflow-x-auto my-2 ${
+                                theme === 'dark' ? 'bg-gray-900 text-gray-100' : 'bg-gray-50 text-gray-900'
+                              }`} {...props} />
+                            ),
+                          pre: ({node, ...props}) => <pre className="overflow-x-auto" {...props} />,
+                          blockquote: ({node, ...props}) => (
+                            <blockquote className={`border-l-4 pl-4 italic my-2 ${
+                              theme === 'dark' ? 'border-gray-600' : 'border-gray-300'
+                            }`} {...props} />
+                          ),
+                          a: ({node, ...props}) => (
+                            <a className="text-blue-500 hover:underline" target="_blank" rel="noopener noreferrer" {...props} />
+                          ),
+                          table: ({node, ...props}) => (
+                            <div className="overflow-x-auto my-2">
+                              <table className="min-w-full border-collapse" {...props} />
+                            </div>
+                          ),
+                          th: ({node, ...props}) => (
+                            <th className={`border px-3 py-2 font-bold ${
+                              theme === 'dark' ? 'border-gray-600 bg-gray-700' : 'border-gray-300 bg-gray-100'
+                            }`} {...props} />
+                          ),
+                          td: ({node, ...props}) => (
+                            <td className={`border px-3 py-2 ${
+                              theme === 'dark' ? 'border-gray-600' : 'border-gray-300'
+                            }`} {...props} />
+                          ),
+                        }}
+                      >
+                        {message.text}
+                      </ReactMarkdown>
+                    ) : (
+                      <p className="whitespace-pre-wrap break-words">{message.text}</p>
+                    )}
+                  </div>
                   
                   {/* Copy Button */}
                   <button

@@ -32,7 +32,7 @@ export async function POST(request: NextRequest) {
       messages: [
         {
           role: "system",
-          content: "You are a helpful AI assistant. Be friendly, concise, and helpful in your responses."
+          content: "You are a helpful AI assistant. Format your responses using Markdown for better readability:\n- Use **bold** for important terms\n- Use headings (##) to organize information\n- Use bullet points for lists\n- Use `code` for technical terms\n- Use code blocks (```) for code examples\nBe friendly, clear, and well-structured in your responses."
         },
         {
           role: "user",

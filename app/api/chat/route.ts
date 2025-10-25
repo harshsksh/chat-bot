@@ -39,7 +39,7 @@ export async function POST(request: NextRequest) {
           content: message
         }
       ],
-      max_tokens: 150,
+      max_tokens: 1000, // Allow complete responses (1000 tokens ≈ 700-800 words)
       temperature: 0.7,
     })
     

@@ -554,8 +554,9 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 ## 👨‍💻 Author
 
 **Harsh Yadav**
-- GitHub: [@harshsksh](https://github.com/harshsksh)
-- Project Link: [https://github.com/harshsksh/chat-bot](https://github.com/harshsksh/chat-bot)
+- 💼 LinkedIn: [Harsh Yadav](https://www.linkedin.com/in/harsh-yadav-218370272/)
+- 🐙 GitHub: [@harshsksh](https://github.com/harshsksh)
+- 🚀 Project Link: [https://github.com/harshsksh/chat-bot](https://github.com/harshsksh/chat-bot)
 
 ## 🙏 Acknowledgments
 
@@ -571,6 +572,9 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 ### ⭐ Star this repo if you found it helpful!
 
-Made by Harsh Yadav
+Made by [Harsh Yadav](https://www.linkedin.com/in/harsh-yadav-218370272/)
+
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-Connect-blue?style=for-the-badge&logo=linkedin)](https://www.linkedin.com/in/harsh-yadav-218370272/)
+[![GitHub](https://img.shields.io/badge/GitHub-Follow-black?style=for-the-badge&logo=github)](https://github.com/harshsksh)
 
 </div>
